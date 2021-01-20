@@ -1,0 +1,15 @@
+- hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Install vsfptd
+      yum:
+        name: vsftpd
+        state: latest
+
+    - name: Install apache
+      yum: 
+       name: httpd
+       state: latest
+
+       

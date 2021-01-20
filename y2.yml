@@ -1,0 +1,29 @@
+- name: Welcome to my Playbooks Tutorials 
+  hosts: web
+  gather_facts: false
+  tasks:
+  - name: create /tmp/redhat directory
+    file: 
+       path: /tmp/redhat
+       state: directory 
+  - name: copy /etc/fstab into /tmp/redhat
+    copy: 
+       src: /etc/fstab
+       dest: /tmp/redhat
+
+
+- name: 2nd Play
+  hosts: db
+  gather_facts: false
+  tasks:
+  - name: restart service crond
+    service:
+      name: crond
+      state: restarted 
+  - name: install frp or vsftpd
+    yum: 
+     name:
+       - vsftpd
+       - ftp
+     state: installed   
+            

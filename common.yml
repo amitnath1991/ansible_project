@@ -1,0 +1,4 @@
+web_pkg: httpd
+webroot: /var/www/html
+app: krnetwork-2.0.1.war
+homedir: /root/playbooks

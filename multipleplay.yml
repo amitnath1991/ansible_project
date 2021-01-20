@@ -1,0 +1,15 @@
+
+
+- name: second play for another service
+  hosts: all
+  tasks:
+    
+  - name: install mariadb server
+       yum:
+	  name: mariadb
+	  state: latest
+
+       - name: Enable mariadb service 
+            service: 
+	       name: mariadb
+	       enabled: true	

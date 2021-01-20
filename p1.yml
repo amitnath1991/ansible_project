@@ -1,0 +1,18 @@
+- hosts: web
+  gather_facts: false
+  tasks:
+  - file: 
+        path: /tmp/redhat
+        state: directory 
+  - copy:
+        src: /etc/fstab
+        dest: /tmp/redhat
+  - service:
+        name: crond
+        state: started
+  - yum: 
+        name: 
+             - vsftpd
+             - ftp 
+        state: installed
+

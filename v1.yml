@@ -1,0 +1,29 @@
+- name: Example of Playbook level Variable
+  host: web
+  vars: 
+    web_pkg: httpd
+    webroot: /var/www/html
+    app: krnetwork-2-.0.1.war
+    homedir: /root
+  tasks:
+    - name: install the package
+      yum: 
+        name: "{{ web_pkg }}"
+        state: installed 
+
+
+   - name: start "{{ web_pkg }}"service 
+     service: 
+          name: "{{ web_pkg }}"
+          state: started
+
+
+   - name: create document root "{{ webroot }}"
+     file: 
+       path: "{{ webroot }}"
+       state: directory
+
+   - name: copy "{{ app }}" into "{{ webroot }}"
+     copy: 
+       src: "{{ homedir }}"/{{ app }}
+       dest: " {{ webroot }}/index.html"

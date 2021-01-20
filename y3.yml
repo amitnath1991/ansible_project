@@ -1,0 +1,23 @@
+- name: Welcome to Ansible Yaml format
+  hosts: web
+  tasks: 
+     - name: Example of single line format
+       file: path=/tmp/test state=touch mode=0777 owner=root group=root
+     
+
+
+
+     - name: Example of multi line format
+       file: path=/tmp/test
+             mode=0777
+             group=root
+             state=touch 
+
+
+     - name: Dictionary format
+       file:
+         path: /tmp/test
+         state: touch
+         mode: 0777
+         owner: root
+         group: root  

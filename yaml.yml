@@ -1,0 +1,25 @@
+name: svcrole
+svcrole: httpd
+svcport: 80
+
+{name: svcrole, svcservice: httpd, svcport: 80}
+
+hosts:
+    - servera
+    - serverb
+    - serverc
+
+
+hosts: [servera, serverb, serverc]
+
+tasks:
+    - name: normal form
+      service: 
+          name: httpd
+          enabled: true
+          state: started
+
+
+tasks: 
+   - name: shorthand form
+     service: name=httpd enabled=true state=started

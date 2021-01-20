@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks: 
+    - name: Ensure that the apache is installed 
+      yum: 
+        name: httpd
+        state: present
+    - name: Ensure that apache is started
+      service: 
+          name: httpd
+          state: started
+          enabled: yes   
+    - name: Install PHP 7 most common packages
+      yum: 
+       name: php
+       state: present  

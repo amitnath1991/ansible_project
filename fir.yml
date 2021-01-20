@@ -1,0 +1,19 @@
+- hosts: all
+  tasks:
+
+
+  - name: latest verison of httpd and firewalld
+    yum: 
+      name:
+        - httpd
+        - firewalld
+      state: latest
+  - name: service should be started.
+    service: 
+        name: httpd
+        state: started    
+
+  - name: test html page is intalled 
+    copy: 
+       content: "welcome to the example.com intranet!\n"
+       dest: /var/www/html/index.html
